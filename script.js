@@ -17,3 +17,10 @@ const pixels = document.querySelectorAll('.pixel');
 for (let pixel of pixels) {
     pixel.addEventListener('mouseenter', () => pixel.classList.add('black-pixel'));
 }
+
+const clearnBtn = document.querySelector('#clear');
+clearnBtn.addEventListener('click', () => {
+    for (let pixel of pixels) {
+        pixel.classList.remove('black-pixel');
+    }
+});
