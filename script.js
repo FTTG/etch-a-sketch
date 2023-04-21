@@ -1,7 +1,5 @@
-const container = document.querySelector('.grid-container');
 const gridSize = document.querySelector('#grid-size');
-const sliderText = document.querySelector('#grid-text');
-let pixels = document.querySelectorAll('.pixel');
+
 
 createGrid();
 
@@ -9,6 +7,9 @@ gridSize.addEventListener("input", createGrid);
 
 // Create the grid inside the grid-container
 function createGrid() {
+    const container = document.querySelector('.grid-container');
+    const sliderText = document.querySelector('#grid-text');
+    let pixels = document.querySelectorAll('.pixel');
     container.textContent = '';
     for (let i = 0; i < gridSize.value; i++) {
         const row = document.createElement('div');
@@ -23,11 +24,11 @@ function createGrid() {
     sliderText.textContent = `Grid Size: ${gridSize.value}`;
     // After all pixels are created, update pixels node
     pixels = document.querySelectorAll('.pixel');
-    paintBlack();
+    paintBlack(pixels);
 }
 
 
-function paintBlack() {
+function paintBlack(pixels) {
     // Give each pixel div the class to paint them black on hover
     for (let pixel of pixels) {
         pixel.addEventListener('mouseenter', () => pixel.classList.add('black-pixel'));
@@ -36,6 +37,7 @@ function paintBlack() {
 // Provide the instructions to remove the class to paint them black on use of clear button
 const clearnBtn = document.querySelector('#clear');
 clearnBtn.addEventListener('click', () => {
+    let pixels = document.querySelectorAll('.pixel');
     for (let pixel of pixels) {
         pixel.classList.remove('black-pixel');
     }
