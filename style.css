@@ -63,3 +63,7 @@ body {
 #clear:hover {
     background-color: #B02E0C;
 }
+
+#clear:active {
+    background-color: #9c270c;
+}

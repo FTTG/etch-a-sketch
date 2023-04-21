@@ -1,5 +1,6 @@
 const container = document.querySelector('.grid-container');
 
+// Create the grid inside the grid-container
 for (let i = 0; i < 16; i++) {
     const row = document.createElement('div');
     row.classList.add('row');
@@ -13,11 +14,12 @@ for (let i = 0; i < 16; i++) {
 
 const pixels = document.querySelectorAll('.pixel');
 
-
+// Give each pixel div the class to paint them black on hover
 for (let pixel of pixels) {
     pixel.addEventListener('mouseenter', () => pixel.classList.add('black-pixel'));
 }
 
+// Provide the instructions to remove the class to paint them black on use of clear button
 const clearnBtn = document.querySelector('#clear');
 clearnBtn.addEventListener('click', () => {
     for (let pixel of pixels) {
